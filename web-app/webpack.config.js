@@ -23,7 +23,8 @@ module.exports = {
     devtool: 'eval-source-map',
     mode: 'development',
     devServer: {
-        watchFiles: ["src/**/*", "public/**/*"]
+        watchFiles: ["src/**/*", "public/**/*"],
+        historyApiFallback: true,
     },
     module: {
         rules: [
