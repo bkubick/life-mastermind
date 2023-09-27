@@ -7,7 +7,7 @@ interface Props {}
 interface State {}
 
 
-class App extends React.Component<Props, State> {
+class Authorization extends React.Component<Props, State> {
 
 
     constructor(props: Props) {
@@ -18,10 +18,10 @@ class App extends React.Component<Props, State> {
     render() {
         return (
             <div id='app' className='container mx-auto h-screen flex'>
-                Main App
+                Authorization Page
             </div>
         )
     }
 }
 
-export default App;
+export default Authorization;
