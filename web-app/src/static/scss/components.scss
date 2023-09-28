@@ -1,0 +1,37 @@
+@import "tailwindcss/utilities";
+
+
+.connected-list {
+
+  .list-wrapper {
+    @apply relative;
+  }
+
+  .list-item-wrapper {
+    @apply mt-3 relative;
+  }
+
+  .list-bullet {
+    @apply float-left mr-5 bg-primary h-5 w-5 rounded-full font-bold text-white text-center z-1 relative;
+  }
+
+  .list-item {
+    @apply table-row align-middle;
+  }
+
+  .list-text {
+    @apply font-normal;
+  }
+
+  .primary-line {
+    @apply bg-primary h-full absolute z-0;
+    width: 2px;
+    left: 9px;
+  }
+
+  .white-line {
+    @apply bg-white top-0 h-full absolute z-0;
+    width: 2px;
+    left: 9px;
+  }
+}

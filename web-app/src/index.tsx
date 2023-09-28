@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { RouterProvider } from "react-router-dom";
 
 import '../public/index.css';
+import './static/scss/components.scss';
 
 import router from './router';
 
