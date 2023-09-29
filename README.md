@@ -2,8 +2,31 @@
 
 ## Description
 
-A personal application built to help monitor and track various aspects of your life.
+**NOTE** This project is still at the very beginnning stages and is under active development.
 
+A personal application built to help monitor and track various aspects of my day-to-day. This is at the very beginning stages of the project, but at some point will include various tools such as the following:
+
+* Periodic (daily, weekly, monthly, etc.) and one-time tasks
+* Goal tracker
+* Personal budget tracker
+* Notification system
+* Lists of courses, certifications, books, schooling, videos, etc.
+* Current projects tracking system
+* Health dashboard
+
+
+## REST API (Django)
+
+This REST API was built using the Django and Python framework.
+
+### Tech Stack
+<img style="padding-right:20px;" align=left alt="Python" src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/>
+<img style="padding-right:20px;" alt="Django" src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white"/>
+
+### Starting REST API
+```
+python3 manage.py runserver
+```
 
 ## Web App (React.js)
 
