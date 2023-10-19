@@ -55,7 +55,7 @@ class ConnectedList extends React.Component<Props, State> {
 
     render() {
         return (
-            <div className='p-10 connected-list'>
+            <div className='connected-list'>
                 <h3 className='text-3xl font-bold mb-6'>{ this.props.title }</h3>
                 <div className="list-wrapper">
                     <div className="primary-line"></div>
