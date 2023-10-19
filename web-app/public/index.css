@@ -1,3 +1,31 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+body {
+    @apply cursor-default bg-gradient-to-b from-gray-300 to-white;
+}
+
+.btn, .btn-sm, .btn-lg {
+    @apply font-bold py-2 px-4 rounded;
+}
+
+.btn-sm {
+    @apply text-sm py-1 px-2;
+}
+
+.btn-lg {
+    @apply text-lg;
+}
+
+.btn-primary-outline {
+    @apply text-primary border-2 border-primary transition ease-in-out duration-150 inline-block;
+}
+
+.btn-primary-outline:hover {
+    @apply -translate-y-1 shadow-md shadow-primary;
+}
+
+.card{
+    @apply p-2 rounded shadow-md shadow-gray-500;
+}
