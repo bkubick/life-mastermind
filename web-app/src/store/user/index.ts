@@ -18,7 +18,6 @@ const userSlice = createSlice({
             reducers.setUserInfo(state, action.payload);
         });
         builder.addCase(actions.login.fulfilled, (state: UserState, action) => {
-            console.log('API Accepted...')
             state.isLoading = false;
             reducers.setUserInfo(state, action.payload);
         });
@@ -30,14 +29,12 @@ const userSlice = createSlice({
             state.isLoading = true;
         });
         builder.addCase(actions.login.pending, (state: UserState, action) => {
-            console.log('API Rejected...')
             state.isLoading = true;
         });
         builder.addCase(actions.logout.pending, (state: UserState, action) => {
             state.isLoading = true;
         });
         builder.addCase(actions.login.rejected, (state: UserState, action) => {
-            console.log('API Rejected...')
             state.isLoading = false;
         });
     }
