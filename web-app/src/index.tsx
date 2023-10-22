@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RouterProvider } from "react-router-dom";
+import { Provider } from 'react-redux'
 
 import '../public/index.css';
 import './static/scss/components.scss';
 
 import router from './router';
+import store from './store'
 
 // @ts-ignore
 const root = ReactDOM.createRoot(
@@ -15,6 +17,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={ router } />
+    <Provider store={ store }>
+      <RouterProvider router={ router } />
+    </Provider>
   </React.StrictMode>
 );
