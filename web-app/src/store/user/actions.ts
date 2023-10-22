@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { api, ApiRoute } from "src/api";
+import { UserInfo } from "./state";
 
 
 // Interfaces
@@ -14,7 +15,7 @@ interface RegisterData {
 
 
 interface LoginData {
-    email: string;
+    username: string;
     password: string;
 }
 
@@ -32,10 +33,10 @@ interface LoginData {
  * @param password The user's password.
  * @returns void
  */
-const register = createAsyncThunk('user/auth/register', async (data: RegisterData): Promise<any> => {
+const register = createAsyncThunk('user/auth/register', async (data: RegisterData): Promise<UserInfo> => {
     const response = await api.post(ApiRoute.USER.REGISTER, { ...data });
-
-    return response.data;
+    const responseData: UserInfo = response.data;
+    return responseData;
 });
 
 
@@ -48,10 +49,11 @@ const register = createAsyncThunk('user/auth/register', async (data: RegisterDat
  * @param password The user's password.
  * @returns void
  */
-const login = createAsyncThunk('user/auth/login', async (data: LoginData): Promise<any> => {
+const login = createAsyncThunk('user/auth/login', async (data: LoginData): Promise<UserInfo> => {
+    console.log('API Loging In...')
     const response = await api.post(ApiRoute.USER.LOGIN, { ...data });
-
-    return response.data;
+    const responseData: UserInfo = response.data;
+    return responseData;
 });
 
 

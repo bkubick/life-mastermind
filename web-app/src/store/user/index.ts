@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import * as actions from "./actions";
 import * as reducers from "./reducers";
-import { initialUserState } from "./state";
+import UserState, { initialUserState } from "./state";
 
 
 /**
@@ -11,33 +11,38 @@ import { initialUserState } from "./state";
 const userSlice = createSlice({
     name: 'user',
     initialState: initialUserState,
-    reducers: {...reducers},
+    reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(actions.register.fulfilled, (state, action) => {
-            state.loading = false;
-            return reducers.register(state, action);
+        builder.addCase(actions.register.fulfilled, (state: UserState, action) => {
+            state.isLoading = false;
+            reducers.setUserInfo(state, action.payload);
         });
-        builder.addCase(actions.login.fulfilled, (state, action) => {
-            state.loading = false;
-            return reducers.login(state, action);
+        builder.addCase(actions.login.fulfilled, (state: UserState, action) => {
+            console.log('API Accepted...')
+            state.isLoading = false;
+            reducers.setUserInfo(state, action.payload);
         });
-        builder.addCase(actions.logout.fulfilled, (state, action) => {
-            state.loading = false;
-            return reducers.logout(state, action);
+        builder.addCase(actions.logout.fulfilled, (state: UserState, action) => {
+            state.isLoading = false;
+            reducers.clearUserInfo(state, action.payload);
         });
-        builder.addCase(actions.register.pending, (state, action) => {
-            state.loading = true;
+        builder.addCase(actions.register.pending, (state: UserState, action) => {
+            state.isLoading = true;
         });
-        builder.addCase(actions.login.pending, (state, action) => {
-            state.loading = true;
+        builder.addCase(actions.login.pending, (state: UserState, action) => {
+            console.log('API Rejected...')
+            state.isLoading = true;
         });
-        builder.addCase(actions.logout.pending, (state, action) => {
-            state.loading = true;
+        builder.addCase(actions.logout.pending, (state: UserState, action) => {
+            state.isLoading = true;
+        });
+        builder.addCase(actions.login.rejected, (state: UserState, action) => {
+            console.log('API Rejected...')
+            state.isLoading = false;
         });
     }
 });
 
 
-
-export const { login, logout, register } = userSlice.actions
-export default userSlice.reducer;
+export { actions };
+export default userSlice;

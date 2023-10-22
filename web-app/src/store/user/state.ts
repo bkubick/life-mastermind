@@ -7,19 +7,34 @@ interface UserState {
     email: string;
     username: string;
     loggedIn: boolean;
-    loading: boolean;
+
+    isLoading: boolean;
 }
 
 
+/**
+ * The initialUserState defines the initial state of the user slice of the store.
+ */
 const initialUserState: UserState = {
     firstName: '',
     lastName: '',
     email: '',
     username: '',
     loggedIn: false,
-    loading: false,
+    isLoading: false,
+}
+
+
+/**
+ * The UserInfo interface defines the shape of the user information returned from the server.
+ */
+interface UserInfo {
+    firstName: string;
+    lastName: string;
+    email: string;
+    username: string;
 }
 
 
 export default UserState;
-export { initialUserState };
+export { initialUserState, type UserInfo };
