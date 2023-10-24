@@ -1,12 +1,4 @@
-import UserState from "./state";
-
-
-interface UserInfo {
-    firstName: string;
-    lastName: string;
-    email: string;
-    username: string;
-}
+import UserState, { UserInfo } from "./state";
 
 
 /**
@@ -20,7 +12,6 @@ function setUserInfo(state: UserState, data: UserInfo): void {
     state.firstName = data.firstName;
     state.lastName = data.lastName;
     state.email = data.email;
-    state.username = data.username;
     state.loggedIn = true;
 };
 
@@ -34,7 +25,6 @@ function clearUserInfo(state: UserState, action: any): void {
     state.firstName = '';
     state.lastName = '';
     state.email = '';
-    state.username = '';
     state.loggedIn = false;
 }
 

@@ -5,7 +5,6 @@ interface UserState {
     firstName: string;
     lastName: string;
     email: string;
-    username: string;
     loggedIn: boolean;
 
     isLoading: boolean;
@@ -19,7 +18,6 @@ const initialUserState: UserState = {
     firstName: '',
     lastName: '',
     email: '',
-    username: '',
     loggedIn: false,
     isLoading: false,
 }
@@ -32,7 +30,6 @@ interface UserInfo {
     firstName: string;
     lastName: string;
     email: string;
-    username: string;
 }
 
 

@@ -9,13 +9,12 @@ interface RegisterData {
     firstName: string;
     lastName: string;
     email: string;
-    username: string;
     password: string;
 }
 
 
 interface LoginData {
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -29,7 +28,6 @@ interface LoginData {
  * @param firstName The user's first name.
  * @param lastName The user's last name.
  * @param email The user's email.
- * @param username The user's username.
  * @param password The user's password.
  * @returns void
  */
