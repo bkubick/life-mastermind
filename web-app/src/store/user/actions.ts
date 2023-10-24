@@ -48,7 +48,6 @@ const register = createAsyncThunk('user/auth/register', async (data: RegisterDat
  * @returns void
  */
 const login = createAsyncThunk('user/auth/login', async (data: LoginData): Promise<UserInfo> => {
-    console.log('API Loging In...')
     const response = await api.post(ApiRoute.USER.LOGIN, { ...data });
     const responseData: UserInfo = response.data;
     return responseData;
