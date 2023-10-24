@@ -1,21 +1,25 @@
-import React from 'react';
 import { ErrorMessage, Formik, Form, Field } from 'formik';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
-import { InputField } from '../../../components/form/fields';
-import { FieldMatch, Required, ValidateEmail, ValidationPipeline } from '../../../components/form/validation';
+import { InputField } from 'src/components/form/fields';
+import { FieldMatch, Required, ValidateEmail, ValidationPipeline } from 'src/components/form/validation';
+import * as user from 'src/store/user';
 
 
 interface FormValues {
     firstName: string;
     lastName: string;
     email: string;
-    username: string;
     password: string;
     confirmPassword: string;
 }
 
 
-interface Props {}
+interface Props {
+    register: (form: FormValues) => void;
+}
 
 
 interface State {
@@ -33,16 +37,18 @@ class SignupForm extends React.Component<Props, State> {
                 firstName: '',
                 lastName: '',
                 email: '',
-                username: '',
                 password: '',
                 confirmPassword: '',
             }
         }
+
+        this.onSubmit = this.onSubmit.bind(this);
+        this.validateConfirmPassword = this.validateConfirmPassword.bind(this);
     }
 
     onSubmit(values: FormValues, actions: any) {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            this.props.register(values);
             actions.setSubmitting(false);
         }, 1000);
     }
@@ -55,10 +61,6 @@ class SignupForm extends React.Component<Props, State> {
         return (
             <Formik initialValues={ this.state.form } onSubmit={ this.onSubmit }>
                 <Form className='w-full p-10'>
-                    <div className='mb-4'>
-                        <Field name="username" placeholder="Username" component={ InputField } validate={ Required } />
-                        <ErrorMessage name="username"/>
-                    </div>
                     <div className='mb-4'>
                         <Field name="firstName" placeholder="Firstname" component={ InputField } validate={ Required } />
                         <ErrorMessage name="firstName"/>
@@ -87,4 +89,19 @@ class SignupForm extends React.Component<Props, State> {
 }
 
 
-export default SignupForm;
+/**
+ * Dispatches the register action to the store.
+ * 
+ * TODO: Need to figure out how to handle the 'any' type here.
+ * 
+ * @param dispatch 
+ * @returns 
+ */
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+    return {
+        register: (form: FormValues) => dispatch(user.actions.register({ ...form })),
+    }
+};
+
+
+export default connect(null, mapDispatchToProps)(SignupForm);
