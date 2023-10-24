@@ -1,7 +1,7 @@
 enum User {
-  LOGIN = '/user/login/',
-  REGISTER = '/user/register/',
-  LOGOUT = '/user/logout/',
+  LOGIN = '/users/login/',
+  REGISTER = '/users/register/',
+  LOGOUT = '/users/logout/',
 }
 
 
