@@ -9,7 +9,7 @@ import * as user from 'src/store/user';
 
 
 interface FormValues {
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -30,7 +30,7 @@ class LoginForm extends React.Component<Props, State> {
         super(props);
         this.state = {
             form: {
-                username: '',
+                email: '',
                 password: '',
             }
         }
@@ -55,8 +55,8 @@ class LoginForm extends React.Component<Props, State> {
             <Formik initialValues={ this.state.form } onSubmit={ this.onSubmit }>
                 <Form className='w-full p-10'>
                     <div className='mb-4'>
-                        <Field name="username" placeholder="Username/Email" component={ InputField } validate={ Required }/>
-                        <ErrorMessage name="username"/>
+                        <Field name="email" placeholder="Email" component={ InputField } validate={ Required }/>
+                        <ErrorMessage name="email"/>
                     </div>
                     <div className='mb-4'>
                         <Field type="password" name="password" placeholder="Password" component={ InputField } validate={ Required } />
