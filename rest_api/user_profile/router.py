@@ -5,5 +5,5 @@ from user_profile import views
 
 user_profile_router = routers.DefaultRouter()
 
-user_profile_router.register(r'profiles', views.UserViewSet)
-user_profile_router.register(r'groups', views.GroupViewSet)
+user_profile_router.register(r'register', views.RegisterView)
+user_profile_router.register(r'profile', views.UserViewSet)
