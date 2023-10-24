@@ -22,6 +22,6 @@ from user_profile.router import user_profile_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', include(user_profile_router.urls)),
+    path('users/', include(user_profile_router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
